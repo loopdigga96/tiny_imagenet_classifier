@@ -40,13 +40,12 @@
 
 ## Result:
 - model: efficeint_netb4 with label smoothing, Adam, ReduceLROnPlateau, EarlyStopping
-- final accuaracy: 0.7544
-- final loss: 
-- final csv with test predictions: [download]()
+- final val accuaracy: 0.7544
+- final csv with test predictions: [download](https://drive.google.com/file/d/1klFWpRssLdTUMe6KfApWZQhw-_PdtBRR/view?usp=sharing)
 
 
 ## How to run service (FastAPI):
-- [download]() model and place it to results_folder;  service will use this checkpoint in inference
+- [download](https://drive.google.com/drive/folders/1jWtrVRMjFbKbSpfZkkI6GjysPnCbh8j4?usp=sharing) model and place it to results_folder;  service will use this checkpoint in inference
 - `uvicorn --host 0.0.0.0 service:app --reload`
 - POST: `127.0.0.1:8000/predict/` 
     - `curl -X POST "http://127.0.0.1:8000/predict/" -H  "accept: application/json" -H  "Content-Type: multipart/form-data" -F "file=@path_to_image.jpg;type=image/webp"`
