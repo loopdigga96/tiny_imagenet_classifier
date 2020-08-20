@@ -29,7 +29,8 @@ models.Base.metadata.create_all(bind=engine)
 
 # load best model
 loss_function = torch.nn.modules.loss.CrossEntropyLoss()
-full_checkpoint_path = './results/ef_b4_scheduler_lower_lr_2020-08-18_15:23:56/checkpoints/epoch=6-val_loss=1.28.ckpt'
+full_checkpoint_path = ('./results/ef_b4_label_smoothing_early_stop_2020-08-19_11:55:12/'
+                       'checkpoints/epoch=18-val_loss=1.77.ckpt')
 best_model = LightningTinyImageNetClassifier(get_backbone(), loss_function, batch_size, lr)
 best_model.load_state_dict(torch.load(full_checkpoint_path, map_location=torch.device('cpu'))['state_dict'])
 
