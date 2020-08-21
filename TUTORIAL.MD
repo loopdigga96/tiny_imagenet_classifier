@@ -8,6 +8,7 @@
 ### How to install
 - Create virtualenv with **python 3.7**
 - `pip install -r requirements.txt`
+- place dataset in **./data** folder
 
 ### How to train
 - `python train_solution.py`
@@ -28,19 +29,20 @@
 - add label smoothing stabilize training (+1% acc)
 
 
-### Possible improvements (that i did not tried because it would take much time on my machine):
+### Possible improvements (that i did not tried):
+- train for longer time (Can't do that because of lack of computing power)
 - make ensemble of models (usually it helps), starting from simple probabilities averaging and take predictions from different efficient nets
 - make tricky augmentations for example from ablumentations
-- try Focal Loss
-- increase capacity of model b7 efficient net
+- try Focal Loss (in my experinece gives an improvement)
+- increase capacity of model for example b7 efficient net (did not tried it because of my small gpu)
 - use SOTA model on ImageNet dataset according to [paperswithcode](https://paperswithcode.com/sota/image-classification-on-imagenet) for example efficient net b7  noisy student
 - make even more experiments with optimizer and schedulers. For example use LR Cyclic scheduler, lr warm up and decay
 - use Test Time Augmentations
 
 
 ## Result:
-- model: efficeint_netb4 with label smoothing, Adam, ReduceLROnPlateau, EarlyStopping
-- final val accuaracy: 0.7544
+- model: pretrained efficeint_netb4 with label smoothing, Adam, ReduceLROnPlateau, EarlyStopping
+- final val accuaracy: 0.76
 - final csv with test predictions: [download](https://drive.google.com/file/d/1klFWpRssLdTUMe6KfApWZQhw-_PdtBRR/view?usp=sharing)
 
 
