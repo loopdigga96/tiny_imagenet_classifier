@@ -63,14 +63,15 @@ async def create_upload_files(request: Request, file: UploadFile = File(...), db
         confidence = probas[predicted_class].item()
 
         client_host = request.client.host
-        print(client_host)
         # in milliseconds
         elapsed_time = int((datetime.datetime.now() - start_time).total_seconds() * 1000)
+
         request = schemas.Requests(infer_time=elapsed_time,
                                    infer_result=probas.tolist(),
                                    predicted_class=predicted_class,
                                    confidence=confidence,
-                                   client_host=client_host)
+                                   client_host=client_host,
+                                   time=datetime.datetime.utcnow())
         crud.write_request(db, request)
 
         return {'predicted_class': predicted_class, 'confidence': confidence,
