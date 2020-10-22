@@ -1,3 +1,6 @@
+### About
+This repo contains training pipeline on Tiny ImageNet dataset and REST API for classifier using FastAPI
+
 ### Project structure
 ```
 - database "contains all necessary functions for storing requests in sqlite"
